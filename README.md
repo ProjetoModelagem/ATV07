@@ -228,11 +228,7 @@ V(G) = 4 + 1 = 5
 
 ### Caminhos Independentes (base)
 
-1 | Lista vazia (sem entrar no laço) | total=0 | Retorno: Abaixo
-2 | Pelo menos um n positivo e par sem passar de 10 (ex.: [2]) | total=2 | Retorno: Abaixo
-3 | Positivos pares somando acima de 10 (ex.: [6, 6]) | total=12 | Retorno: Acima
-4 | Pelo menos um n negativo (ex.: [-1]) | total=-1 | Retorno: Abaixo
-5 | Zeros/ímpares positivos apenas (ex.: [0, 3]) | total=0 | Retorno: Abaixo
+1 | Lista vazia (sem entrar no laço) | total=0 | Retorno: Abaixo 2 | Pelo menos um n positivo e par sem passar de 10 (ex.: \[2\]) | total=2 | Retorno: Abaixo 3 | Positivos pares somando acima de 10 (ex.: \[6, 6\]) | total=12 | Retorno: Acima 4 | Pelo menos um n negativo (ex.: \[-1\]) | total=-1 | Retorno: Abaixo 5 | Zeros/ímpares positivos apenas (ex.: \[0, 3\]) | total=0 | Retorno: Abaixo
 
 ### Casos de Teste — Cobertura de Comando e Ramo
 
