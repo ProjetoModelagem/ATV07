@@ -228,31 +228,44 @@ V(G) = 4 + 1 = 5
 
 ### Caminhos Independentes (base)
 
-1 | Lista vazia (sem entrar no laço) | total=0 | Retorno: Abaixo 2 | Pelo menos um n positivo e par sem passar de 10 (ex.: \[2\]) | total=2 | Retorno: Abaixo 3 | Positivos pares somando acima de 10 (ex.: \[6, 6\]) | total=12 | Retorno: Acima 4 | Pelo menos um n negativo (ex.: \[-1\]) | total=-1 | Retorno: Abaixo 5 | Zeros/ímpares positivos apenas (ex.: \[0, 3\]) | total=0 | Retorno: Abaixo
+| # | Caminho | Total final | Retorno esperado |
+|---|----------|-------------|------------------|
+| 1 | Lista vazia (sem entrar no laço) | 0 | Abaixo |
+| 2 | Pelo menos um n positivo e par sem passar de 10 (ex.: [2]) | 2 | Abaixo |
+| 3 | Positivos pares somando acima de 10 (ex.: [6, 6]) | 12 | Acima |
+| 4 | Pelo menos um n negativo (ex.: [-1]) | -1 | Abaixo |
+| 5 | Zeros/ímpares positivos apenas (ex.: [0, 3]) | 0 | Abaixo |
+
 
 ### Casos de Teste — Cobertura de Comando e Ramo
 
-CT | Entrada (numeros) | Objetivo (ramo/comando) | Total final | Retorno esperado
-1 | [] | laço 0x + if final (false) | 0 | Abaixo
-2 | [2] | if composto true → total += n | 2 | Abaixo
-3 | [6, 6] | if composto true (várias iterações) + if final (true) | 12 | Acima
-4 | [-1] | elif n < 0 → total -= 1 | -1 | Abaixo
-5 | [3] | else → continue | 0 | Abaixo
+| CT | Entrada (numeros) | Objetivo (ramo/comando) | Total final | Retorno esperado |
+|----|-------------------|--------------------------|-------------|------------------|
+| 1  | []                | laço 0x + if final (false) | 0 | Abaixo |
+| 2  | [2]               | if composto true → total += n | 2 | Abaixo |
+| 3  | [6, 6]            | if composto true (várias iterações) + if final (true) | 12 | Acima |
+| 4  | [-1]              | elif n < 0 → total -= 1 | -1 | Abaixo |
+| 5  | [3]               | else → continue | 0 | Abaixo |
+
 
 ### Casos de Teste — Cobertura da Condição Composta `(n > 0 and n % 2 == 0)`
 
-CT | n | (n > 0) | (n % 2 == 0) | Avaliação da condição | Ramo tomado | Retorno esperado (lista=[n])
-C1 | 2 | True | True | True | total += n | Abaixo
-C2 | 3 | True | False | False | continue | Abaixo
-C3 | -2 | False | True | False | total -= 1 | Abaixo
-C4 | -3 | False | False | False | total -= 1 | Abaixo
+| CT | n  | (n > 0) | (n % 2 == 0) | Avaliação da condição | Ramo tomado     | Retorno esperado (lista=[n]) |
+|----|----|----------|---------------|-----------------------|-----------------|------------------------------|
+| C1 | 2  | True     | True          | True                  | total += n      | Abaixo                       |
+| C2 | 3  | True     | False         | False                 | continue        | Abaixo                       |
+| C3 | -2 | False    | True          | False                 | total -= 1      | Abaixo                       |
+| C4 | -3 | False    | False         | False                 | total -= 1      | Abaixo                       |
+
 
 ### Casos de Teste — Comportamentos do Laço
 
-CT | Entrada (numeros) | Iterações do laço | Ações internas | Total final | Retorno esperado
-L1 | [] | 0 | — | 0 | Abaixo
-L2 | [2] | 1 | total += 2 | 2 | Abaixo
-L3 | [6, 6] | 2 | +6, +6 | 12 | Acima
+| CT | Entrada (numeros) | Iterações do laço | Ações internas | Total final | Retorno esperado |
+|----|-------------------|-------------------|----------------|-------------|------------------|
+| L1 | []                | 0                 | —              | 0           | Abaixo           |
+| L2 | [2]               | 1                 | total += 2     | 2           | Abaixo           |
+| L3 | [6, 6]            | 2                 | +6, +6         | 12          | Acima            |
+
 
 ### Observações
 
